@@ -1,0 +1,21 @@
+<nav class="sidebar">
+    <div class="sidebar__logo">
+        <i class="fa-brands fa-x-twitter"></i>
+    </div>
+    <ul class="sidebar__nav">
+        <li class="sidebar__nav-item"><a href="{{ route('home') }}" class="sidebar__link sidebar__link--active"><i class="fas fa-home sidebar__icon"></i><span class="sidebar__text">Home</span></a></li>
+        <li class="sidebar__nav-item"><a href="#" class="sidebar__link"><i class="fas fa-hashtag sidebar__icon"></i><span class="sidebar__text">Explore</span></a></li>
+        <li class="sidebar__nav-item"><a href="#" class="sidebar__link"><i class="far fa-bell sidebar__icon"></i><span class="sidebar__text">Notifications</span></a></li>
+        <li class="sidebar__nav-item"><a href="#" class="sidebar__link"><i class="far fa-envelope sidebar__icon"></i><span class="sidebar__text">Messages</span></a></li>
+        <li class="sidebar__nav-item"><a href="#" class="sidebar__link"><i class="far fa-globe sidebar__icon"></i><span class="sidebar__text">Grok</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="fas fa-people-group sidebar__icon"></i><span class="sidebar__text">Lists</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="far fa-bookmark sidebar__icon"></i><span class="sidebar__text">Bookmarks</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="fas fa-briefcase sidebar__icon"></i><span class="sidebar__text">Jobs</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="fas fa-user sidebar__icon"></i><span class="sidebar__text">Communities</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="far fa-bookmark sidebar__icon"></i><span class="sidebar__text">Premium</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="fas fa-list-alt sidebar__icon"></i><span class="sidebar__text">Verified Orgs</span></a></li>
+        <li class="sidebar__nav-item"><a href="{{ route('profile', { id: 1 }) }}" class="sidebar__link"><i class="far fa-user sidebar__icon"></i><span class="sidebar__text">Profile</span></a></li>
+        <li class="sidebar__nav-item sidebar__nav-item--hide-mobile"><a href="#" class="sidebar__link"><i class="fas fa-ellipsis-h sidebar__icon"></i><span class="sidebar__text">More</span></a></li>
+        <button class="sidebar__post-btn"><span class="sidebar__post-text">Post</span></button>
+    </ul>
+</nav>

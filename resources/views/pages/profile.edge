@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+  </head>
+  <body>
+    <div class="container-fluid">
+      @include('components/left_sidebar')
+
+      <main class="profile">
+        <header class="profile__header">
+          <div class="profile__header-content">
+            <a href="{{ route('home') }}" class="profile__back-btn">
+              <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="profile__title">
+              <h1 class="profile__name">{{ user.name }}</h1>
+              <span class="profile__post-count">{{ user.post + ' posts' }}</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="profile__banner-wrapper">
+          <div class="profile__banner">
+            <img class="profile__banner-img" src="{{ user.couverture }}" alt="{{ user.name }}'s banner" />
+          </div>
+          <div class="profile__avatar">
+            @if(user.avatar)
+              <img class="profile__avatar-img" src="{{ user.avatar }}" alt="{{ user.name }}'s avatar" />
+            @else
+              <span class="profile__avatar-text">{{ user.name[0] }}</span>
+            @end
+          </div>
+        </div>
+
+        <div class="profile__content">
+          <div class="profile__actions">
+            <button class="profile__edit-btn">Edit profile</button>
+          </div>
+
+          <div class="profile__info">
+            <div class="profile__user">
+              <h2 class="profile__user-name">{{ user.name }}</h2>
+              <span class="profile__user-handle">{{ user.username }}</span>
+            </div>
+
+            <p class="profile__bio">{{ user.bio }}</p>
+
+            <div class="profile__metadata">
+              <div class="profile__location">
+                <i class="fas fa-map-marker-alt profile__icon"></i>
+                <span class="profile__text">Kinshasa, Congo</span>
+              </div>
+              <div class="profile__join-date">
+                <i class="far fa-calendar-alt profile__icon"></i>
+                <span class="profile__text">Joined March 2024</span>
+              </div>
+            </div>
+
+            <div class="profile__stats">
+              <div class="profile__stat profile__stat--following">
+                <span class="profile__stat-count">{{ user.following }}</span>
+                <span class="profile__stat-label">Following</span>
+              </div>
+              <div class="profile__stat profile__stat--followers">
+                <span class="profile__stat-count">{{ user.follower }}</span>
+                <span class="profile__stat-label">Followers</span>
+              </div>
+            </div>
+          </div>
+
+          <nav class="profile__nav">
+            <a href="#" class="profile__nav-link profile__nav-link--active">Posts</a>
+            <a href="#" class="profile__nav-link">Replies</a>
+            <a href="#" class="profile__nav-link">Highlights</a>
+            <a href="#" class="profile__nav-link">Articles</a>
+            <a href="#" class="profile__nav-link">Media</a>
+            <a href="#" class="profile__nav-link">Likes</a>
+          </nav>
+
+          <div class="profile__tweets">
+            @each(tweet in tweets)
+              <article class="tweet">
+                <div class="tweet__avatar">
+                  @if(tweet.avatar)
+                    <img class="tweet__avatar-img" src="{{ tweet.avatar }}" alt="{{ tweet.name }}'s avatar" />
+                  @else
+                    <span class="tweet__avatar-text">{{ tweet.name[0] }}</span>
+                  @end
+                </div>
+                <div class="tweet__content">
+                  <div class="tweet__header">
+                    <span class="tweet__name">{{ tweet.name }}</span>
+                    <span class="tweet__username">{{ tweet.username }}</span>
+                    <span class="tweet__time">{{ tweet.date }}</span>
+                  </div>
+                  <p class="tweet__text">{{ tweet.tweet }}</p>
+                  @if (tweet.media)
+                    <div class="tweet__media">
+                      <img class="tweet__media-img" src="{{ tweet.media }}" alt="Tweet media" />
+                    </div>
+                  @endif
+                  <div class="tweet__actions">
+                    <button class="tweet__action tweet__action--comment">
+                      <i class="far fa-comment"></i>
+                      <span class="tweet__action-count">{{ tweet.comment }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--retweet">
+                      <i class="fas fa-retweet"></i>
+                      <span class="tweet__action-count">{{ tweet.retweet }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--like">
+                      <i class="far fa-heart"></i>
+                      <span class="tweet__action-count">{{ tweet.like }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--share">
+                      <i class="fas fa-share-alt"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
+            @end
+          </div>
+        </div>
+      </main>
+
+      @include('components/right_sidebar')
+    </div>
+  </body>
+</html>

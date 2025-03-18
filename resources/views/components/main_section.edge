@@ -1,0 +1,76 @@
+<main class="main">
+    <header class="main__header">
+        <nav class="main__tabs">
+            <button class="main__tab main__tab--active" data-tab="for-you">For you</button>
+            <button class="main__tab" data-tab="following">Following</button>
+        </nav>
+    </header>
+
+    <div class="composer">
+        <div class="composer__avatar">
+            @if(user.avatar)
+                <img class="composer__avatar-img" src="{{ user.avatar }}" alt="{{ user.name }}">
+            @else
+                <span class="composer__avatar-text">{{ user.name[0] }}</span>
+            @end
+        </div>
+        <div class="composer__content">
+            <textarea class="composer__input" placeholder="What's happening ?"></textarea>
+            <div class="composer__actions">
+                <div class="composer__tools">
+                    <button class="composer__tool"><i class="far fa-image"></i></button>
+                    <button class="composer__tool"><i class="fas fa-film"></i></button>
+                    <button class="composer__tool"><i class="far fa-chart-bar"></i></button>
+                    <button class="composer__tool"><i class="far fa-smile"></i></button>
+                    <button class="composer__tool"><i class="far fa-calendar"></i></button>
+                    <button class="composer__tool"><i class="fas fa-globe"></i></button>
+                </div>
+                <button class="composer__submit">Post</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="feed" id="tweetFeed">
+        @each(tweet in tweets)
+        <article class="tweet">
+            <div class="tweet__avatar">
+                @if(tweet.avatar)
+                    <img class="tweet__avatar-img" src="{{ tweet.avatar }}" alt="{{ tweet.name }}" />
+                @else
+                    <span class="tweet__avatar-text">{{ tweet.name[0]}}</span>
+                @end
+            </div>
+            <div class="tweet__content">
+                <div class="tweet__header">
+                    <span class="tweet__name">{{ tweet.name }}</span>
+                    <span class="tweet__username">{{ tweet.username }}</span>
+                    <span class="tweet__time">{{ tweet.date }}</span>
+                </div>
+                <p class="tweet__text">{{ tweet.tweet }}</p>
+                @if (tweet.media)
+                <div class="tweet__media">
+                    <img class="tweet__media-img" src="{{ tweet.media }}" alt="Tweet media">
+                </div>
+                @endif
+                <div class="tweet__actions">
+                    <button class="tweet__action tweet__action--comment">
+                        <i class="far fa-comment"></i>
+                        <span class="tweet__action-count">{{ tweet.comment }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--retweet">
+                        <i class="fas fa-retweet"></i>
+                        <span class="tweet__action-count">{{ tweet.retweet }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--like">
+                        <i class="far fa-heart"></i>
+                        <span class="tweet__action-count">{{ tweet.like }}</span>
+                    </button>
+                    <button class="tweet__action tweet__action--share">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </article>      
+        @end
+    </div>
+</main>

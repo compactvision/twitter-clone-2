@@ -1,0 +1,36 @@
+/* Import des composants CSS */
+@import url('./left_sidebar.css');    /* Barre latérale gauche */
+@import url('./main_section.css');    /* Section principale */
+@import url('./right_sidebar.css');   /* Barre latérale droite */
+@import url('./profile.css');         /* Page de profil */
+
+/* Reset CSS global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style de base du corps de la page */
+body {
+  background-color: var(--black);  /* Fond noir caractéristique de Twitter */
+  color: var(--white);             /* Texte blanc pour le contraste */
+  min-height: 100vh;       /* Hauteur minimale pour le scroll */
+}
+
+/* Conteneur principal centré et responsive */
+.container-fluid {
+  display: flex;           /* Layout flexbox pour les colonnes */
+  max-width: 1400px;       /* Largeur maximale comme Twitter */
+  margin: 0 auto;          /* Centrage horizontal */
+  width: 100%;             /* Utilise toute la largeur disponible */
+  position: relative;      /* Context de positionnement pour les enfants */
+}
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --border-color: #2f3336;
+  --hover: #181818;
+  --text-secondary: #71767b;
+}
