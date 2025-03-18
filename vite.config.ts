@@ -16,4 +16,17 @@ export default defineConfig({
       reload: ['resources/views/**/*.edge'],
     }),
   ],
+
+  // Ajoutez cette configuration pour autoriser votre domaine Render
+  server: {
+    allowedHosts: [
+      'twitter-clone-2-32un.onrender.com', // Ajoutez votre domaine Render ici
+    ],
+  },
+
+  build: {
+    outDir: 'public/assets', // Dossier de sortie pour les assets compilés
+    assetsDir: '.', // Dossier relatif pour les assets (CSS, JS, etc.)
+    emptyOutDir: true, // Vide le dossier de sortie avant chaque build
+  },
 })
